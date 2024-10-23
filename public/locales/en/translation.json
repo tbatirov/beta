@@ -1,0 +1,47 @@
+{
+  "common": {
+    "error": "Error",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "submit": "Submit",
+    "next": "Next",
+    "previous": "Previous",
+    "proceedToNextStep": "Proceed to Next Step"
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "projects": "Projects",
+    "apiConfig": "API Config",
+    "ragSystem": "RAG System",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "appName": "IFRS Converter"
+  },
+  "home": {
+    "title": "IFRS Converter",
+    "subtitle": "Streamline your financial reporting with our IFRS conversion tool",
+    "startConversion": "Start Conversion",
+    "viewDashboard": "View Dashboard",
+    "globalCompliance": "Global Compliance",
+    "globalComplianceDesc": "Ensure your financial statements comply with international standards",
+    "accurateAnalysis": "Accurate Analysis",
+    "accurateAnalysisDesc": "Get precise insights into your financial data",
+    "dataSecurity": "Data Security",
+    "dataSecurityDesc": "Your financial information is protected with state-of-the-art security",
+    "howItWorks": "How It Works",
+    "step1Title": "Upload Your Data",
+    "step1Desc": "Upload your financial statements in various formats",
+    "step2Title": "Automated Conversion",
+    "step2Desc": "Our AI-powered system converts your statements to IFRS",
+    "step3Title": "Review and Download",
+    "step3Desc": "Review the converted statements and download the results",
+    "readyToStart": "Ready to start your IFRS conversion?",
+    "getStarted": "Get Started"
+  }
+}

@@ -1,0 +1,49 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --primary-color: #1a3a6e;
+  --secondary-color: #2c5282;
+  --accent-color: #e53e3e;
+  --text-color: #2d3748;
+  --background-color: #f7fafc;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.btn-primary {
+  @apply bg-[var(--primary-color)] text-white font-semibold py-2 px-4 rounded hover:bg-[var(--secondary-color)] transition duration-300;
+}
+
+.btn-secondary {
+  @apply bg-white text-[var(--primary-color)] font-semibold py-2 px-4 rounded border border-[var(--primary-color)] hover:bg-gray-100 transition duration-300;
+}
+
+.card {
+  @apply bg-white shadow-md rounded-lg p-6;
+}
+
+.input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent;
+}
+
+.page-title {
+  @apply text-3xl font-bold text-[var(--primary-color)] mb-6;
+}
+
+.section-title {
+  @apply text-xl font-semibold text-[var(--secondary-color)] mb-4;
+}
+
+.nav-link {
+  @apply text-[var(--text-color)] hover:text-[var(--primary-color)] font-medium transition duration-300;
+}
+
+.nav-link-active {
+  @apply text-[var(--primary-color)] font-semibold;
+}

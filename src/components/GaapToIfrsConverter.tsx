@@ -42,8 +42,8 @@ const GaapToIfrsConverter: React.FC<GaapToIfrsConverterProps> = ({ statements, o
       const result = await convertToIFRS(currentStatement.gaapData);
       
       // Translate explanations and recommendations
-      const translatedExplanations = result.explanations.map(exp => t('gaapToIfrs.explanation', { explanation: exp }));
-      const translatedRecommendations = result.recommendations.map(rec => t('gaapToIfrs.recommendation', { recommendation: rec }));
+      const translatedExplanations = result.explanations.map(exp => exp);
+      const translatedRecommendations = result.recommendations.map(rec => rec);
 
       const newConvertedStatement: ConvertedStatement = {
         ...currentStatement,
@@ -91,7 +91,6 @@ const GaapToIfrsConverter: React.FC<GaapToIfrsConverterProps> = ({ statements, o
       ) : (
         <>
           <div className="mb-4">
-            <p>{t('gaapToIfrs.progress', { current: currentIndex + 1, total: statements.length })}</p>
             <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
               <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${(currentIndex / statements.length) * 100}%` }}></div>
             </div>

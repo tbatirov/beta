@@ -1,6 +1,8 @@
 import { logger } from '../logger';
 import { LogLevel } from '../../types/logging';
 import { getApiKey } from '../apiKeyUtil';
+import { removeMarkdown } from './index';
+
 
 export const generateReport = async (data: any): Promise<string> => {
   logger.log(LogLevel.INFO, 'Generating final report', { data });
@@ -29,12 +31,12 @@ Ensure that the disclosures and financial health analysis sections are detailed 
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-4o',
         messages: [
           { role: 'system', content: 'You are a financial reporting expert specializing in IFRS-compliant reports.' },
           { role: 'user', content: prompt }
         ],
-        temperature: 0.7,
+        temperature: 0.5,
         max_tokens: 4000,
       }),
     });
@@ -47,7 +49,7 @@ Ensure that the disclosures and financial health analysis sections are detailed 
     const content = responseData.choices[0].message.content;
 
     // Post-process the content to ensure proper formatting
-    const formattedContent = postProcessReport(content, data);
+    const formattedContent = postProcessReport(removeMarkdown(content), data);
 
     logger.log(LogLevel.INFO, 'Final report generation completed successfully');
     return formattedContent;

@@ -2,6 +2,8 @@ import { logger } from '../logger';
 import { LogLevel } from '../../types/logging';
 import { ParsedData } from '../fileParsers';
 import { getApiKey } from '../apiKeyUtil';
+import { removeMarkdown } from './index';
+
 
 export const generateDisclosures = async (ifrsData: ParsedData): Promise<{ standard: string; content: string }[]> => {
   logger.log(LogLevel.INFO, 'Generating IFRS disclosures', { ifrsData });
@@ -35,7 +37,7 @@ export const generateDisclosures = async (ifrsData: ParsedData): Promise<{ stand
           { role: 'system', content: 'You are a financial expert specializing in IFRS disclosures.' },
           { role: 'user', content: prompt }
         ],
-        temperature: 0.7,
+        temperature: 0.5,
         max_tokens: 3000,
       }),
     });
@@ -48,7 +50,7 @@ export const generateDisclosures = async (ifrsData: ParsedData): Promise<{ stand
     const content = data.choices[0].message.content;
 
     // Parse the response manually
-    const disclosures = parseDisclosures(content);
+    const disclosures = parseDisclosures(removeMarkdown(content));
 
     logger.log(LogLevel.INFO, 'IFRS disclosure generation completed successfully', { disclosures });
     return disclosures;

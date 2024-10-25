@@ -101,6 +101,24 @@
       "step4": "4. IFRS standartlariga mos hisobotlarni tekshiring va yuklab oling"
     }
   },
+  "dashboard": {
+    "title": "Boshqaruv paneli",
+    "loading": "Ma'lumotlar yuklanmoqda...",
+    "totalConversions": "Jami konvertatsiyalar",
+    "successfulConversions": "Muvaffaqiyatli",
+    "failedConversions": "Muvaffaqiyatsiz",
+    "avgConversionTime": "O'rtacha vaqt",
+    "recentConversions": "So'nggi konvertatsiyalar",
+    "noRecentConversions": "So'nggi konvertatsiyalar yo'q",
+    "viewDetails": "Tafsilotlarni ko'rish",
+    "conversionTrends": "Konvertatsiya tendensiyalari",
+    "weeklyConversions": "Haftalik konvertatsiyalar",
+    "averageProjectValue": "O'rtacha loyiha qiymati",
+    "conversionAccuracy": "Konvertatsiya aniqligi",
+    "statusCompleted": "Tugallangan",
+    "statusIdle": "Kutilmoqda",
+    "statusInProgress": "Jarayonda"
+  },
   "converter": {
     "title": "IFRS Konverter",
     "step": "Qadam {{step}} / {{total}}",
@@ -115,11 +133,63 @@
     "reviewChanges": "O'zgarishlarni ko'rib chiqish",
     "generateReport": "Hisobot yaratish",
     "downloadOptions": "Yuklab olish variantlari",
-    "steps": {
-      "upload": "Fayllarni yuklash",
-      "convert": "Konvertatsiya",
-      "review": "Ko'rib chiqish",
-      "generate": "Hisobot yaratish"
+    "validation": {
+      "title": "Tekshirish",
+      "success": "Tekshirish muvaffaqiyatli",
+      "error": "Tekshirish xatosi",
+      "checking": "Muvofiqlik tekshirilmoqda..."
+    },
+    "report": {
+      "title": "Hisobot yaratish",
+      "generating": "Hisobot yaratilmoqda...",
+      "downloadPDF": "PDF yuklab olish",
+      "downloadExcel": "Excel yuklab olish",
+      "preview": "Hisobotni ko'rish"
+    }
+  },
+  "apiConfig": {
+    "title": "API Sozlamalari",
+    "description": "Tashqi xizmatlar uchun API kalitlarini sozlang. Bu kalitlar konvertatsiya jarayoni uchun zarur.",
+    "openaiApiKey": "OpenAI API Kaliti",
+    "enterApiKey": "API kalitini kiriting",
+    "saveApiKey": "API kalitini saqlash",
+    "saveSuccess": "API kaliti muvaffaqiyatli saqlandi",
+    "saveError": "API kalitini saqlashda xatolik yuz berdi",
+    "apiKeyRequired": "Bu operatsiya uchun API kaliti zarur",
+    "securityNote": "API kalitlaringiz brauzeringizning mahalliy xotirasida xavfsiz saqlanadi"
+  },
+  "rag": {
+    "title": "RAG (Qidirish-Kengaytirish-Generatsiya) Tizimi",
+    "description": "Hujjatlarni yuklang va kontekstga asoslangan javoblar olish uchun savollar bering",
+    "howItWorks": "Bu qanday ishlaydi",
+    "step1Title": "Kontent yuklash",
+    "step1Description": "Bilimlar bazasini yaratish uchun hujjatlarni yuklang yoki matn kiriting",
+    "step2Title": "Savollar bering",
+    "step2Description": "Kontentingiz haqida aniq savollar bering",
+    "step3Title": "Javoblar oling",
+    "step3Description": "Aniq, kontekstga asoslangan javoblar oling",
+    "loadContent": "Kontentni yuklash",
+    "enterUrl": "Kontentni yuklash uchun URL kiriting",
+    "enterTextContent": "Matn kontentini kiriting yoki joylashtiring",
+    "loadUrl": "URL dan yuklash",
+    "loadText": "Matnni yuklash",
+    "askQuestion": "Savol berish",
+    "enterQuestion": "Savolingizni kiriting",
+    "ask": "So'rash",
+    "answer": "Javob",
+    "errorNoLightRAG": "RAG tizimi ishga tushirilmagan. Iltimos, avval API kalitini sozlang.",
+    "successContentLoaded": "Kontent {type} dan muvaffaqiyatli yuklandi",
+    "url": "URL",
+    "textInput": "matn kiritish",
+    "errorLoadingContent": "Kontentni yuklashda xatolik: {error}",
+    "errorProcessingQuestion": "Savolni qayta ishlashda xatolik: {error}",
+    "successQuestionAnswered": "Savol muvaffaqiyatli javob oldi",
+    "configuration": {
+      "title": "RAG Sozlamalari",
+      "model": "Model tanlash",
+      "temperature": "Temperatura",
+      "maxTokens": "Maksimal tokenlar",
+      "save": "Sozlamalarni saqlash"
     }
   }
 }

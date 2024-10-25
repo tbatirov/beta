@@ -100,20 +100,20 @@ const Reconciliation: React.FC<ReconciliationProps> = ({ statements, onReconcili
             <th className="border p-2">{t('reconciliation.gaapValue')}</th>
             <th className="border p-2">{t('reconciliation.ifrsValue')}</th>
             <th className="border p-2">{t('reconciliation.difference')}</th>
+            <th className="border p-2">{t('reconciliation.comment')}</th>
             <th className="border p-2">{t('reconciliation.adjustment')}</th>
           </tr>
         </thead>
         <tbody>
           {statements.map((statement) =>
             Object.entries(statement.ifrsData).map(([key, ifrsValue]) => {
-              const gaapValue = statement.gaapData[key];
-              const difference = Number(ifrsValue) - Number(gaapValue);
               return (
                 <tr key={`${statement.name}-${key}`}>
                   <td className="border p-2">{key}</td>
-                  <td className="border p-2">{formatValue(gaapValue)}</td>
-                  <td className="border p-2">{formatValue(ifrsValue)}</td>
-                  <td className="border p-2">{formatValue(difference)}</td>
+                  <td className="border p-2">{formatValue(ifrsValue["GAAP Value"])}</td>
+                  <td className="border p-2">{formatValue(ifrsValue["IFRS Value"])}</td>
+                  <td className="border p-2">{formatValue(ifrsValue["Difference"])}</td>
+                  <td className="border p-2">{formatValue(ifrsValue["Explanation"])}</td>
                   <td className="border p-2">
                     <input
                       type="text"

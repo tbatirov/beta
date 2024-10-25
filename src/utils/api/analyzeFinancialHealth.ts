@@ -2,6 +2,8 @@ import { logger } from '../logger';
 import { LogLevel } from '../../types/logging';
 import { ParsedData } from '../fileParsers';
 import { getApiKey } from '../apiKeyUtil';
+import { removeMarkdown } from './index';
+
 
 export const analyzeFinancialHealth = async (ifrsData: ParsedData, language: string): Promise<{
   analysis: string;
@@ -29,16 +31,16 @@ export const analyzeFinancialHealth = async (ifrsData: ParsedData, language: str
         "Return on Equity": 0.00
       },
       "strengths": [
-        "Strength point 1",
-        "Strength point 2"
+        // "Strength point 1",
+        // "Strength point 2"
       ],
       "concerns": [
-        "Concern point 1",
-        "Concern point 2"
+        // "Concern point 1",
+        // "Concern point 2"
       ],
       "recommendations": [
-        "Recommendation 1",
-        "Recommendation 2"
+        // "Recommendation 1",
+        // "Recommendation 2"
       ]
     }
 
@@ -47,7 +49,7 @@ export const analyzeFinancialHealth = async (ifrsData: ParsedData, language: str
     2. The analysis is thorough and professional
     3. All strengths, concerns, and recommendations are specific and actionable
     4. The response is in the ${language} language
-    5. The response must be valid JSON
+    5. The response must be valid JSON only
   `;
 
   try {
@@ -58,7 +60,7 @@ export const analyzeFinancialHealth = async (ifrsData: ParsedData, language: str
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-4o',
         messages: [
           {
             role: 'system',
@@ -66,7 +68,7 @@ export const analyzeFinancialHealth = async (ifrsData: ParsedData, language: str
           },
           { role: 'user', content: prompt }
         ],
-        temperature: 0.7,
+        temperature: 0.5,
         max_tokens: 3000,
       }),
     });
@@ -76,7 +78,7 @@ export const analyzeFinancialHealth = async (ifrsData: ParsedData, language: str
     }
 
     const data = await response.json();
-    const content = data.choices[0].message.content;
+    const content = removeMarkdown(data.choices[0].message.content);
 
     let parsedResult;
     try {

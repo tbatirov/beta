@@ -130,7 +130,7 @@ const FinancialHealthAnalysis: React.FC<FinancialHealthAnalysisProps> = ({
         <ul className="list-disc list-inside">
           {items.map((item, index) => (
             <li key={index} className="text-sm">
-              {t(translationKey, { [translationKey.split('.')[1]]: item })}
+              {item}
             </li>
           ))}
         </ul>

@@ -27,9 +27,38 @@ const EditableFinancialTable: React.FC<EditableFinancialTableProps> = ({ stateme
     logger.log(LogLevel.DEBUG, 'EditableFinancialTable data updated', { data: statements.map(s => s.gaapData) });
   }, [statements]);
 
-  const columns = useMemo<ColumnDef<ParsedData>[]>(() => {
-    if (data.length === 0) return [];
-    return Object.keys(data[0]).map(key => ({
+  // Transform the flat data into a matrix format
+  const matrixData = useMemo(() => {
+    const keys = Object.keys(data[0] || {});
+    const rows = keys.reduce((acc, key) => {
+      const [rowKey, rowIndex] = key.split('_');
+      if (rowIndex !== undefined) { // Ensure rowIndex is defined
+        acc[rowIndex] = acc[rowIndex] || {};
+        acc[rowIndex][rowKey] = data[0][key];
+      }
+      return acc;
+    }, {} as Record<string, Record<string, any>>);
+
+    // Filter out rows that are completely empty
+    const filteredRows = Object.values(rows).filter(row => 
+      Object.values(row).some(value => value !== undefined && value !== null && value !== '')
+    );
+
+    // Log the matrixData for debugging
+    console.log('Matrix Data:', filteredRows);
+
+    return filteredRows;
+  }, [data]);
+
+  const columns = useMemo<ColumnDef<any>[]>(() => {
+    if (matrixData.length === 0) return [];
+
+    const allKeys = new Set<string>();
+    matrixData.forEach(row => {
+      Object.keys(row).forEach(key => allKeys.add(key));
+    });
+
+    return Array.from(allKeys).map(key => ({
       accessorKey: key,
       header: key,
       cell: ({ getValue, row, column, table }) => {
@@ -51,10 +80,10 @@ const EditableFinancialTable: React.FC<EditableFinancialTableProps> = ({ stateme
         );
       },
     }));
-  }, [data, onDataChange]);
+  }, [matrixData, onDataChange]);
 
   const table = useReactTable({
-    data,
+    data: matrixData,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -65,7 +94,7 @@ const EditableFinancialTable: React.FC<EditableFinancialTableProps> = ({ stateme
     return <div className="text-red-500">{t('editableFinancialTable.error', { error })}</div>;
   }
 
-  if (data.length === 0) {
+  if (matrixData.length === 0) {
     return <div className="text-gray-500">{t('editableFinancialTable.noData')}</div>;
   }
 
@@ -90,9 +119,9 @@ const EditableFinancialTable: React.FC<EditableFinancialTableProps> = ({ stateme
             ))}
           </thead>
           <tbody>
-            {table.getRowModel().rows.map(row => (
-              <tr key={row.id} className="bg-white border-b hover:bg-gray-50">
-                {row.getVisibleCells().map(cell => (
+            {table.getFilteredRowModel().rows.map(row => (
+              <tr key={row.id} className="bg-white border-b hover:bg-gray-100">
+                {row.getAllCells().map(cell => (
                   <td key={cell.id} className="px-6 py-4">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>

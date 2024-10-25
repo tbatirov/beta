@@ -1,4 +1,118 @@
 {
+  "collaborationApproval": {
+    "title": "Collaboration Approval",
+    "financialStatementsPreview": "Financial Statements Preview",
+    "disclosuresPreview": "Disclosures Preview",
+    "comments": "Comments",
+    "addComment": "Add Comment",
+    "reject": "Reject",
+    "approve": "Approve"
+  },
+  "conversionSettings": {
+    "title": "Conversion Settings",
+    "revenueRecognition": "Revenue Recognition",
+    "leases": "Leases",
+    "financialInstruments": "Financial Instruments",
+    "saveSettings": "Save Settings"
+  },
+  "comparisonView": {
+    "parseError": "Error parsing comparison view",
+    "title": "Comparison View",
+    "originalStatement": "Original Statement",
+    "convertedStatement": "Converted Statement",
+    "differences": "Differences",
+    "original": "Original",
+    "converted": "Converted"
+  },
+  "disclosureGenerator": {
+    "title": "Disclosure Generator",
+    "note": "Note",
+    "generating": "Generating...",
+    "generatedDisclosures": "Generated Disclosures",
+    "generateDisclosures": "Generate Disclosures"
+  },
+  "editableFinancialTable": {
+    "noData": "No data available"
+  },
+  "financialHealthAnalysis": {
+    "keyRatios": "Key Ratios",
+    "analysisTitle": "Financial Health Analysis",
+    "strengths": "Strengths",
+    "concerns": "Concerns",
+    "recommendations": "Recommendations",
+    "noStatements": "No statements available",
+    "title": "Financial Health Analysis",
+    "analyzing": "Analyzing...",
+    "results": "Results",
+    "analyze": "Analyze"
+  },
+  "fileParser": {
+    "title": "File Parser",
+    "parsing": "Parsing...",
+    "dropFiles": "Drop files here",
+    "dragAndDrop": "Drag and drop files here or click to select",
+    "supportedFormats": "Supported formats: CSV, XLSX, PDF",
+    "parsedFiles": "Parsed Files"
+  },
+  "gaapToIfrs": {
+    "title": "GAAP to IFRS Converter",
+    "retry": "Retry",
+    "converting": "Converting...",
+    "complete": "Conversion Complete",
+    "progress": "Progress"
+  },
+  "reconciliation": {
+    "title": "Reconciliation",
+    "item": "Item",
+    "gaapValue": "GAAP Value",
+    "ifrsValue": "IFRS Value",
+    "difference": "Difference",
+    "comment": "Comment",
+    "adjustment": "Adjustment",
+    "enterAdjustment": "Enter Adjustment",
+    "reconciling": "Reconciling...",
+    "completeReconciliation": "Complete Reconciliation",
+    "proceedToDisclosures": "Proceed to Disclosures"
+  },
+  "register": {
+    "passwordMismatch": "Passwords do not match",
+    "error": "Registration error",
+    "title": "Register",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "signUp": "Sign Up"
+  },
+  "login":{
+    "title":"Log in",
+    "email": "Email",
+    "password":"Password",
+    "signIn": "Sign In"
+  },
+  "reportChatbot": {
+    "error": "Error occurred",
+    "title": "Report Chatbot",
+    "inputPlaceholder": "Type your question here...",
+    "sending": "Sending..."
+  },
+  "reportGenerator": {
+    "title": "Report Generator",
+    "generating": "Generating report...",
+    "preview": "Preview Report",
+    "downloadPDF": "Download PDF",
+    "downloadExcel": "Download Excel",
+    "downloadHTML": "Download HTML"
+  },
+  "updatesCompliance": {
+    "loading": "Loading compliance updates...",
+    "title": "Compliance Updates",
+    "description": "Latest compliance updates",
+    "item": "Item",
+    "value": "Value",
+    "compliant": "Compliant",
+    "confirmAndProceed": "Confirm and Proceed"
+  },
   "common": {
     "error": "Error",
     "loading": "Loading...",
@@ -68,6 +182,24 @@
     "readyToStart": "Ready to start your IFRS conversion?",
     "getStarted": "Get Started"
   },
+  "dashboard": {
+    "title": "Dashboard",
+    "loading": "Loading dashboard data...",
+    "totalConversions": "Total Conversions",
+    "successfulConversions": "Successful",
+    "failedConversions": "Failed",
+    "avgConversionTime": "Average Time",
+    "recentConversions": "Recent Conversions",
+    "noRecentConversions": "No recent conversions found",
+    "viewDetails": "View Details",
+    "conversionTrends": "Conversion Trends",
+    "weeklyConversions": "Weekly Conversions",
+    "averageProjectValue": "Average Project Value",
+    "conversionAccuracy": "Conversion Accuracy",
+    "statusCompleted": "Completed",
+    "statusIdle": "Idle",
+    "statusInProgress": "In Progress"
+  },
   "projects": {
     "title": "Projects",
     "createNew": "Create New Project",
@@ -120,6 +252,64 @@
       "convert": "Convert",
       "review": "Review",
       "generate": "Generate Report"
+    },
+    "validation": {
+      "title": "Validation",
+      "success": "Validation successful",
+      "error": "Validation failed",
+      "checking": "Checking compliance..."
+    },
+    "report": {
+      "title": "Report Generation",
+      "generating": "Generating report...",
+      "downloadPDF": "Download PDF",
+      "downloadExcel": "Download Excel",
+      "preview": "Preview Report"
+    }
+  },
+  "apiConfig": {
+    "title": "API Configuration",
+    "description": "Configure your API keys for external services. These keys are required for the conversion process.",
+    "openaiApiKey": "OpenAI API Key",
+    "enterApiKey": "Enter your API key",
+    "saveApiKey": "Save API Key",
+    "saveSuccess": "API key saved successfully",
+    "saveError": "Failed to save API key",
+    "apiKeyRequired": "API key is required for this operation",
+    "securityNote": "Your API keys are securely stored in your browser's local storage"
+  },
+  "rag": {
+    "title": "Retrieval-Augmented Generation (RAG) System",
+    "description": "Upload documents and ask questions to get context-aware responses",
+    "howItWorks": "How It Works",
+    "step1Title": "Upload Content",
+    "step1Description": "Upload documents or enter text to build the knowledge base",
+    "step2Title": "Ask Questions",
+    "step2Description": "Ask specific questions about your content",
+    "step3Title": "Get Answers",
+    "step3Description": "Receive accurate, context-aware responses",
+    "loadContent": "Load Content",
+    "enterUrl": "Enter URL to load content",
+    "enterTextContent": "Enter or paste text content",
+    "loadUrl": "Load from URL",
+    "loadText": "Load Text",
+    "askQuestion": "Ask a Question",
+    "enterQuestion": "Enter your question",
+    "ask": "Ask",
+    "answer": "Answer",
+    "errorNoLightRAG": "RAG system is not initialized. Please configure API key first.",
+    "successContentLoaded": "Content loaded successfully from {type}",
+    "url": "URL",
+    "textInput": "text input",
+    "errorLoadingContent": "Error loading content: {error}",
+    "errorProcessingQuestion": "Error processing question: {error}",
+    "successQuestionAnswered": "Question answered successfully",
+    "configuration": {
+      "title": "RAG Configuration",
+      "model": "Model Selection",
+      "temperature": "Temperature",
+      "maxTokens": "Max Tokens",
+      "save": "Save Configuration"
     }
   }
 }

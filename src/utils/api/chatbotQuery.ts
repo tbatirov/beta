@@ -28,7 +28,7 @@ Provide a concise and relevant answer based on the given context.`;
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-4o',
         messages: [
           { role: 'system', content: 'You are a helpful assistant specializing in IFRS and financial reporting.' },
           { role: 'user', content: prompt }
